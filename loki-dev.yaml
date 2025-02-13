@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: loki-dev
+  labels:
+    name: loki-dev
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: loki
+  name: loki
+  namespace: loki-dev 
+spec:
+  containers:
+  - name: loki
+    image: grafana/loki:latest
+    volumeMounts:
+  nodeSelector:
+    kubernetes.io/hostname: crc
