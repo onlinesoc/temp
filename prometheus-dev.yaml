@@ -1,21 +1,21 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: loki-dev
+  name: prometheus-dev
   labels:
-    name: loki-dev
+    name: prometheus-dev
 ---
 apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    app: loki
-  name: loki
-  namespace: loki-dev 
+    app: prometheus
+  name: prometheus
+  namespace: prometheus-dev 
 spec:
   containers:
-  - name: loki
-    image: grafana/loki:latest
+  - name: prometheus
+    image: prom/prometheus:latest
     volumeMounts:
   nodeSelector:
     kubernetes.io/hostname: crc
